@@ -80,7 +80,7 @@ public class JokeDB extends SQLiteOpenHelper {
         onUpgrade(db, oldVersion, newVersion);
     }
 
-    public void getWritableDatabase(OnDBReadyListener listener) {
+    public void asyncWritableDatabase(OnDBReadyListener listener) {
         new OpenDbAsyncTask().execute(listener);
     }
 

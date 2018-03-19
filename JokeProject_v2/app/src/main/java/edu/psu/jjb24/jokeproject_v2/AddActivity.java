@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.ContentValues;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,7 +13,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -33,7 +31,7 @@ public class AddActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add);
         rowid = getIntent().getLongExtra("rowid", -1);
 
-        JokeDB.getInstance(this).getWritableDatabase(new JokeDB.OnDBReadyListener() {
+        JokeDB.getInstance(this).asyncWritableDatabase(new JokeDB.OnDBReadyListener() {
             @Override
             public void onDBReady(SQLiteDatabase theDB) {
                 db = theDB;

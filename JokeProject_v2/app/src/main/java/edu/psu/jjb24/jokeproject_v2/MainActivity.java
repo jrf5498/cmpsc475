@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
 
-        JokeDB.getInstance(this).getWritableDatabase(new JokeDB.OnDBReadyListener() {
+        JokeDB.getInstance(this).asyncWritableDatabase(new JokeDB.OnDBReadyListener() {
             @Override
             public void onDBReady(SQLiteDatabase theDB) {
                 db = theDB;
